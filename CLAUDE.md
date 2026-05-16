@@ -72,6 +72,10 @@ Navbar background fades in scroll-driven over the first 150px using inline style
 - `.card-hover` — `translateY(-4px)` + shadow on hover
 - `.mesh-blob-*` — CSS animated blobs (still in CSS but hero uses `@paper-design/shaders-react` MeshGradient instead)
 
+### lucide-react gotcha
+
+This version of `lucide-react` does **not** export `Github` or `Linkedin`. Use inline SVG components instead.
+
 ### External animated libs
 
 - `@paper-design/shaders-react` — `MeshGradient` component. Accepts `colors: string[]` and `speed: number`. No `backgroundColor` prop — set background via a wrapper `div`.
