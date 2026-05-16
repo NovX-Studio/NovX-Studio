@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -9,28 +10,43 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        /* ── Paleta monocromática clara ── */
-        accent:       "#000000",
-        "accent-light": "#1F2937",
-        "accent-dim": "#6B7280",
-        "bg-base":    "#FFFFFF",
-        "bg-card":    "#F5F5F5",
-        "bg-elevated":"#EBEBEB",
-        "text-primary": "#000000",
-        "text-secondary": "#6B7280",
-        "border-subtle": "#E5E7EB",
+        /* ── Semantic tokens — HSL var driven ── */
+        accent:          "hsl(var(--accent))",
+        "accent-light":  "hsl(var(--accent-light))",
+        "accent-dim":    "hsl(var(--accent-dim))",
+        "bg-base":       "hsl(var(--background))",
+        "bg-card":       "hsl(var(--card))",
+        "bg-elevated":   "hsl(var(--secondary))",
+        "text-primary":  "hsl(var(--foreground))",
+        "text-secondary":"hsl(var(--muted-foreground))",
+        "border-subtle": "hsl(var(--border))",
 
         /* shadcn tokens */
-        background:   "var(--background)",
-        foreground:   "var(--foreground)",
-        card: { DEFAULT: "var(--card)", foreground: "var(--card-foreground)" },
-        primary: { DEFAULT: "var(--primary)", foreground: "var(--primary-foreground)" },
-        secondary: { DEFAULT: "var(--secondary)", foreground: "var(--secondary-foreground)" },
-        muted: { DEFAULT: "var(--muted)", foreground: "var(--muted-foreground)" },
-        destructive: { DEFAULT: "var(--destructive)", foreground: "var(--destructive-foreground)" },
-        border: "var(--border)",
-        input:  "var(--input)",
-        ring:   "var(--ring)",
+        background:  "hsl(var(--background))",
+        foreground:  "hsl(var(--foreground))",
+        card: {
+          DEFAULT:    "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+        primary: {
+          DEFAULT:    "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT:    "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        muted: {
+          DEFAULT:    "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        destructive: {
+          DEFAULT:    "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        border: "hsl(var(--border))",
+        input:  "hsl(var(--input))",
+        ring:   "hsl(var(--ring))",
       },
       fontFamily: {
         display: ["var(--font-syne)", "sans-serif"],

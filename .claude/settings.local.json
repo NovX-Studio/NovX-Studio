@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\camil\\\\Novx-Studio\" -Recurse -Filter \"package.json\" | Select-Object -First 5 | ForEach-Object { $_.FullName })",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(node *)"
+    ]
+  }
+}

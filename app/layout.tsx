@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const syne = Syne({
   variable: "--font-syne",
@@ -72,13 +73,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" className={`${syne.variable} ${dmSerif.variable} ${jetbrains.variable}`}>
-      <body className="bg-bg-base text-text-primary font-body antialiased">
-        <Navbar />
-        <PageTransition>
-          <main>{children}</main>
-        </PageTransition>
-        <Footer />
+    <html lang="es" className={`${syne.variable} ${dmSerif.variable} ${jetbrains.variable}`} suppressHydrationWarning>
+      <body className="bg-background text-foreground font-body antialiased">
+        <ThemeProvider>
+          <Navbar />
+          <PageTransition>
+            <main>{children}</main>
+          </PageTransition>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

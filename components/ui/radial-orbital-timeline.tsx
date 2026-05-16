@@ -12,7 +12,7 @@ interface TimelineItem {
   date: string;
   content: string;
   category: string;
-  icon: React.ElementType;
+  icon: React.ElementType<{ size?: number }>;
   relatedIds: number[];
   status: "completed" | "in-progress" | "pending";
   energy: number;
@@ -110,9 +110,9 @@ export default function RadialOrbitalTimeline({ timelineData }: RadialOrbitalTim
 
   const getStatusStyles = (status: TimelineItem["status"]) => {
     switch (status) {
-      case "completed": return "text-white bg-black border-black";
-      case "in-progress": return "text-black bg-white border-black";
-      default: return "text-white bg-black/40 border-white/50";
+      case "completed": return "text-primary-foreground bg-primary border-primary";
+      case "in-progress": return "text-foreground bg-background border-primary";
+      default: return "text-primary-foreground bg-primary/40 border-background/50";
     }
   };
 
@@ -127,7 +127,7 @@ export default function RadialOrbitalTimeline({ timelineData }: RadialOrbitalTim
         <div className="absolute w-16 h-16 rounded-full bg-gradient-to-br from-accent via-accent-light to-accent-dim flex items-center justify-center z-10 pointer-events-none">
           <div className="absolute w-20 h-20 rounded-full border border-accent/20 animate-ping opacity-60" />
           <div className="absolute w-24 h-24 rounded-full border border-accent/10 animate-ping opacity-40" style={{ animationDelay: "0.7s" }} />
-          <div className="w-8 h-8 rounded-full bg-white/80" />
+          <div className="w-8 h-8 rounded-full bg-background/80" />
         </div>
 
         {/* Orbit ring */}

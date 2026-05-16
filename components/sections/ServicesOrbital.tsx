@@ -2,7 +2,12 @@
 
 import { motion } from "framer-motion";
 import { Globe, Code2, LayoutTemplate, Lightbulb, BrainCircuit } from "lucide-react";
-import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
+import dynamic from "next/dynamic";
+
+const RadialOrbitalTimeline = dynamic(
+  () => import("@/components/ui/radial-orbital-timeline"),
+  { ssr: false }
+);
 
 const servicesData = [
   { id: 1, title: "Desarrollo Web", date: "Full-Stack", content: "Apps y sitios modernos con Next.js, React y TypeScript. Velocidad, SEO y código limpio.", category: "Web", icon: Globe, relatedIds: [2, 3], status: "completed" as const, energy: 95 },
@@ -23,11 +28,11 @@ export default function ServicesOrbital() {
           transition={{ duration: 0.6 }}
           className="text-center mb-2"
         >
-          <p className="text-[10px] font-semibold tracking-[0.25em] text-black/25 uppercase mb-4">Servicios</p>
-          <h2 className="font-serif text-[clamp(2rem,5vw,3.5rem)] font-normal text-black leading-tight mb-3">
-            Creamos soluciones <em className="text-black/40">que importan.</em>
+          <p className="text-[10px] font-semibold tracking-[0.25em] text-foreground/25 uppercase mb-4">Servicios</p>
+          <h2 className="font-serif text-[clamp(2rem,5vw,3.5rem)] font-normal text-foreground leading-tight mb-3">
+            Creamos soluciones <em className="text-foreground/40">que importan.</em>
           </h2>
-          <p className="text-black/30 text-sm max-w-sm mx-auto">
+          <p className="text-foreground/30 text-sm max-w-sm mx-auto">
             Hacé click en cada nodo para explorar. Los nodos conectados están relacionados.
           </p>
         </motion.div>
