@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import ThemeToggle from "@/components/ThemeToggle";
+import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 
 const navLinks = [
   { href: "/servicios", label: "Servicios" },
@@ -86,7 +86,7 @@ export default function Navbar() {
 
           {/* Theme toggle + CTA */}
           <div className="hidden md:flex items-center gap-3">
-            <ThemeToggle />
+            <AnimatedThemeToggler />
             <Link href="/contacto">
               <button className="bg-primary hover:bg-primary/90 text-primary-foreground text-sm font-semibold px-5 py-2 rounded-full transition-all duration-200 hover:scale-105">
                 Hablemos
@@ -126,7 +126,7 @@ export default function Navbar() {
                 </motion.div>
               ))}
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: navLinks.length * 0.07 }}>
-                <ThemeToggle />
+                <AnimatedThemeToggler />
               </motion.div>
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: (navLinks.length + 1) * 0.07 }}>
                 <Link href="/contacto">
